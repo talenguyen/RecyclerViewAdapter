@@ -8,7 +8,7 @@ import com.tale.recyclerviewadapter.Assets;
 /**
  * ViewHolder class. This will help to bind content of view which has only one TextView.
  */
-public class Text1ViewHolder extends BaseViewHolder<String> {
+public class Text1VH<T> extends BaseViewHolder<T> {
 
     private final TextView tv;
 
@@ -18,14 +18,20 @@ public class Text1ViewHolder extends BaseViewHolder<String> {
      * @param view       The view object.
      * @param textViewId The id of the {@link android.widget.TextView}.
      */
-    public Text1ViewHolder(View view, int textViewId) {
+    public Text1VH(View view, int textViewId) {
         super(view);
         tv = (TextView) view.findViewById(textViewId);
         Assets.assetNotNull(tv, "the textViewId is not valid");
     }
 
     @Override
-    public void bind(String text) {
+    public void bind(T data) {
+        if (data instanceof String) {
+            tv.setText((CharSequence) data);
+        }
+    }
+
+    public void setText(CharSequence text) {
         tv.setText(text);
     }
 }
