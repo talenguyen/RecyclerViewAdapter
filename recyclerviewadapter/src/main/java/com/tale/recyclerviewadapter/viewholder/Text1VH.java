@@ -3,7 +3,7 @@ package com.tale.recyclerviewadapter.viewholder;
 import android.view.View;
 import android.widget.TextView;
 
-import com.tale.recyclerviewadapter.Assets;
+import com.tale.recyclerviewadapter.Asserts;
 
 /**
  * ViewHolder class. This will help to bind content of view which has only one TextView.
@@ -21,7 +21,7 @@ public class Text1VH<T> extends BaseViewHolder<T> {
     public Text1VH(View view, int textViewId) {
         super(view);
         tv = (TextView) view.findViewById(textViewId);
-        Assets.assetNotNull(tv, "the textViewId is not valid");
+        Asserts.assertNotNull(tv, "the textViewId is not valid");
     }
 
     @Override
